@@ -1,0 +1,12 @@
+package com.kadirayk.ireadnothing.fragments;
+
+public class FragmentManager {
+
+	public interface FragmentTransactions{
+		public void onHomeFragmentFired();
+		public void onConversationsFragmentFired();
+		public void onContactsFragmentFired();
+		public void onConversationDetalFragmentFired();
+	}
+	
+}
