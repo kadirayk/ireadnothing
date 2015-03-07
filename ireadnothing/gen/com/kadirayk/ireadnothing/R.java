@@ -794,10 +794,13 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f060002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f070003;
+        public static final int abc_search_url_text_holo=0x7f070006;
         public static final int abc_search_url_text_normal=0x7f070000;
         public static final int abc_search_url_text_pressed=0x7f070002;
         public static final int abc_search_url_text_selected=0x7f070001;
+        public static final int lightThemeColor=0x7f070005;
+        public static final int themeColor=0x7f070004;
+        public static final int white=0x7f070003;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -984,6 +987,7 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020057;
     }
     public static final class id {
+        public static final int HomeActivityTopBar=0x7f05003d;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -995,13 +999,12 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f05003d;
+        public static final int action_settings=0x7f050045;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
-        public static final int container=0x7f05003c;
         public static final int default_activity_button=0x7f050028;
         public static final int dialog=0x7f05000e;
         public static final int disableHome=0x7f050008;
@@ -1010,7 +1013,15 @@ containing a value of this type.
         public static final int end=0x7f050013;
         public static final int expand_activities_button=0x7f050026;
         public static final int expanded_menu=0x7f05002c;
+        public static final int fragment_ymle_listview=0x7f050044;
         public static final int home=0x7f050014;
+        public static final int homeActivityArchivedYmleBottomRL=0x7f050043;
+        public static final int homeActivityArchivedYmleIV=0x7f050042;
+        public static final int homeActivityArchivedYmleRL=0x7f050041;
+        public static final int homeActivityFragmentContainer=0x7f05003c;
+        public static final int homeActivityYmleBottomRL=0x7f050040;
+        public static final int homeActivityYmleIV=0x7f05003f;
+        public static final int homeActivityYmleRL=0x7f05003e;
         public static final int homeAsUp=0x7f050005;
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
@@ -1096,8 +1107,8 @@ containing a value of this type.
         public static final int abc_popup_menu_item_layout=0x7f030014;
         public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static final int abc_search_view=0x7f030016;
-        public static final int activity_main=0x7f030017;
-        public static final int fragment_main=0x7f030018;
+        public static final int activity_home=0x7f030017;
+        public static final int fragment_ymle=0x7f030018;
         public static final int support_simple_spinner_dropdown_item=0x7f030019;
     }
     public static final class menu {

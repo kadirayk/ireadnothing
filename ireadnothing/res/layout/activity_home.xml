@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    
+    <FrameLayout
+        android:id="@+id/homeActivityFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/HomeActivityTopBar" >
+    </FrameLayout>
+    
+    <LinearLayout
+        android:id="@+id/HomeActivityTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:baselineAligned="false"
+        android:background="@color/themeColor"
+        android:orientation="horizontal"
+         >
+        
+         <RelativeLayout
+            android:id="@+id/homeActivityYmleRL"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@color/themeColor"
+             >
+
+            <ImageView
+                android:id="@+id/homeActivityYmleIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="8dp"
+                android:src="@drawable/ic_launcher" />
+            
+            <RelativeLayout
+                android:id="@+id/homeActivityYmleBottomRL"
+                android:layout_alignParentBottom="true" 
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/lightThemeColor">
+            </RelativeLayout>
+            
+         </RelativeLayout> 
+         <RelativeLayout
+            android:id="@+id/homeActivityArchivedYmleRL"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@color/themeColor"
+             >
+
+            <ImageView
+                android:id="@+id/homeActivityArchivedYmleIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="8dp"
+                android:src="@drawable/ic_launcher" />
+            
+            <RelativeLayout
+                android:id="@+id/homeActivityArchivedYmleBottomRL"
+                android:layout_alignParentBottom="true" 
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#00000000">
+            </RelativeLayout>
+            
+         </RelativeLayout>
+         
+        
+    </LinearLayout>
+    
+</RelativeLayout>
