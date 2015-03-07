@@ -1,0 +1,27 @@
+package com.kadirayk.ireadnothing.fragments;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+public class YMLEDetailFragment extends Fragment{
+
+	private View mView;
+	private TextView ymle_detail_title_TV;
+	private TextView ymle_detail_content_TV;
+	private TextView ymle_detail_author_TV;
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+
+		
+		return super.onCreateView(inflater, container, savedInstanceState);
+	}
+	
+	
+	
+}

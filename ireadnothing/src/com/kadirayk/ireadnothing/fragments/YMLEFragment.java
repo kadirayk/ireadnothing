@@ -14,7 +14,7 @@ import com.kadirayk.ireadnothing.R;
 public class YMLEFragment extends Fragment implements OnItemClickListener{
 
 	private View mView;
-	private ListView fragment_ymle_lv;
+	private ListView fragment_ymle_listview;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,8 +27,8 @@ public class YMLEFragment extends Fragment implements OnItemClickListener{
 	
 	private void setUI(){
 		
-		fragment_ymle_lv = (ListView) mView.findViewById(R.id.fragment_ymle_listview);
-		fragment_ymle_lv.setOnItemClickListener(this);
+		fragment_ymle_listview = (ListView) mView.findViewById(R.id.fragment_ymle_listview);
+		fragment_ymle_listview.setOnItemClickListener(this);
 		
 	}
 
