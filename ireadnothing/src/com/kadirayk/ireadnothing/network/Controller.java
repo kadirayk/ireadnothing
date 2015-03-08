@@ -16,7 +16,7 @@ public class Controller {
 	}
 	
 	public interface OnYMLEResponseRecievedListener {
-		public void OnYMLEResponseRecieved(List<String> YMLEs);
+		public void OnYMLEResponseRecieved(List<YMLE> YMLEs);
 	}
 	
 }

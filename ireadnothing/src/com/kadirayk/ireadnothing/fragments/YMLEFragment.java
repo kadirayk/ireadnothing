@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kadirayk.ireadnothing.R;
+import com.kadirayk.ireadnothing.adapters.YMLEAdapter;
 import com.kadirayk.ireadnothing.network.Controller.OnTitleResponseRecievedListener;
 import com.kadirayk.ireadnothing.network.Controller.OnYMLEResponseRecievedListener;
 import com.kadirayk.ireadnothing.network.YMLEParser;
@@ -24,6 +25,10 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 	private View mView;
 	private ListView fragment_ymle_listview;
 	private TextView fragment_ymle_textview;
+	
+	private List<YMLE> YMLEList;
+	private YMLE YMLEListItem;
+	private YMLEAdapter mAdapter;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +41,7 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 		//networkHandler.callTitleTask();
 		networkHandler.callYMLETask();
 		
+				
 		return mView;
 	}
 	
@@ -60,9 +66,13 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 	}
 
 	@Override
-	public void OnYMLEResponseRecieved(List<String> YMLEs) {
+	public void OnYMLEResponseRecieved(List<YMLE> YMLEs) {
 
-		Toast.makeText(getActivity(), YMLEs.get(0), Toast.LENGTH_SHORT).show();
+		Toast.makeText(getActivity(), YMLEs.get(0).getTitle(), Toast.LENGTH_SHORT).show();
+		
+		mAdapter = new YMLEAdapter(getActivity(), YMLEs);
+		fragment_ymle_listview.setAdapter(mAdapter);
+		mAdapter.notifyDataSetChanged();
 		
 	}
 	

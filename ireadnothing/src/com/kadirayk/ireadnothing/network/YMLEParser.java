@@ -29,7 +29,7 @@ public class YMLEParser {
 	private TitleTask mTitleTask;
 	private YMLETask mYMLETask;
 	
-	String YMLE_URL = "https://www.eksisozluk.com/debe";
+	String YMLE_URL = "http://www.eksisozluk.com/debe";
 	ProgressDialog mProgressDialog;
 	
 	
@@ -107,9 +107,10 @@ public class YMLEParser {
 	}
 	
 	//YMLE AsyncTask
-	private class YMLETask extends AsyncTask<Void, Void, List<String>> {
+	private class YMLETask extends AsyncTask<Void, Void, List<YMLE>> {
 		String title;
 		List<String> YMLEs = new ArrayList<String>();
+		List<YMLE> mYMLEs = new ArrayList<YMLE>();
  
 		@Override
 		protected void onPreExecute() {
@@ -122,26 +123,43 @@ public class YMLEParser {
 		}
  
 		@Override
-		protected List<String> doInBackground(Void... params) {
+		protected List<YMLE> doInBackground(Void... params) {
 			try {
 				// Connect to the web site
 				Document document = Jsoup.connect(YMLE_URL).get();
 				// Get the html document title
 				title = document.title();
-				Elements YMLEElements = document.select("span[class=\"caption\"]");
+				Elements YMLETitle = document.select("span[class=\"caption\"]");
+				Elements YMLEAuthor = document.select("div[class=\"detail\"]");
+				Elements YMLELink = document.select("ol li a");
 				
-				for(Element e : YMLEElements){
-					YMLEs.add(e.text());
-				}
+				YMLE mYMLE = new YMLE();
+				
+				int i = 0;
+				for (Element element : YMLELink) {
+					mYMLE.setLink(element.attr("href"));
+					mYMLE.setAuthor(YMLEAuthor.get(i).text());
+		            mYMLE.setTitle(YMLETitle.get(i).text());
+		            
+		            mYMLEs.add(mYMLE);
+		            
+					YMLEs.add(element.attr("href"));
+		            
+		            i++;
+		        }
+				
+//				for(Element e : YMLETitle){
+//					YMLEs.add(e.text());
+//				}
 				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return YMLEs;
+			return mYMLEs;
 		}
  
 		@Override
-		protected void onPostExecute(List<String> result) {
+		protected void onPostExecute(List<YMLE> result) {
 			if (result == null) {
 				Toast.makeText(mContext, "baþaramadýk :(", Toast.LENGTH_SHORT).show();
 			} else {
