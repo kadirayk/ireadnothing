@@ -1,11 +1,13 @@
 package com.kadirayk.ireadnothing.network;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-
-import com.kadirayk.ireadnothing.R;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -16,14 +18,18 @@ import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
+import com.kadirayk.ireadnothing.fragments.YMLEFragment;
+import com.kadirayk.ireadnothing.network.model.YMLE;
+
 public class YMLEParser {
 
 	
 	private Context mContext;
 	private Fragment currentFragment;
 	private TitleTask mTitleTask;
+	private YMLETask mYMLETask;
 	
-	String url = "http://www.ururulrllrllrlaurl.com";
+	String YMLE_URL = "https://www.eksisozluk.com/debe";
 	ProgressDialog mProgressDialog;
 	
 	
@@ -31,6 +37,7 @@ public class YMLEParser {
 		mContext = context;
 		currentFragment = fragmet;
 		mTitleTask = new TitleTask();
+		mYMLETask = new YMLETask();
 	}
 	
 	
@@ -43,46 +50,104 @@ public class YMLEParser {
 			return false;
 	}
 	
-	public void callLoginTask() {
+	public void callTitleTask() {
 		if (isConnected(mContext)) {
 			mTitleTask.execute();
 		} else {
-			Toast.makeText(mContext, "Lütfen internet baðlantýnýzý kontrol ediniz.", Toast.LENGTH_SHORT).show();
+			Toast.makeText(mContext, "Sorun internet baðlantýsýnda, bizle alakasý yok.", Toast.LENGTH_SHORT).show();
 		}
 	}
 	
+	public void callYMLETask() {
+		if (isConnected(mContext)) {
+			mYMLETask.execute();
+		} else {
+			Toast.makeText(mContext, "Sorun internet baðlantýsýnda, bizle alakasý yok.", Toast.LENGTH_SHORT).show();
+		}
+	}
+	
+	
 	// Title AsyncTask
-	private class TitleTask extends AsyncTask<Void, Void, Void> {
+	private class TitleTask extends AsyncTask<Void, Void, String> {
 		String title;
  
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
 			mProgressDialog = new ProgressDialog(mContext);
-			mProgressDialog.setTitle("Android Basic JSoup Tutorial");
+			mProgressDialog.setTitle("baþlýk var, baþlýk var");
 			mProgressDialog.setMessage("Loading...");
 			mProgressDialog.setIndeterminate(false);
 			mProgressDialog.show();
 		}
  
 		@Override
-		protected Void doInBackground(Void... params) {
+		protected String doInBackground(Void... params) {
 			try {
 				// Connect to the web site
-				Document document = Jsoup.connect(url).get();
+				Document document = Jsoup.connect(YMLE_URL).get();
 				// Get the html document title
 				title = document.title();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return null;
+			return title;
 		}
  
 		@Override
-		protected void onPostExecute(Void result) {
-			// Set title into TextView
-//				TextView txttitle = (TextView) findViewById(R.id.);
-//				txttitle.setText(title);
+		protected void onPostExecute(String result) {
+			if (result == null) {
+				Toast.makeText(mContext, "baþaramadýk :(", Toast.LENGTH_SHORT).show();
+			} else {
+				((YMLEFragment) currentFragment).OnTitleResponseRecieved(result);
+			}
+			super.onPostExecute(result);
+			mProgressDialog.dismiss();
+		}
+	}
+	
+	//YMLE AsyncTask
+	private class YMLETask extends AsyncTask<Void, Void, List<String>> {
+		String title;
+		List<String> YMLEs = new ArrayList<String>();
+ 
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			mProgressDialog = new ProgressDialog(mContext);
+			mProgressDialog.setTitle("baþlýk var, baþlýk var");
+			mProgressDialog.setMessage("Loading...");
+			mProgressDialog.setIndeterminate(false);
+			mProgressDialog.show();
+		}
+ 
+		@Override
+		protected List<String> doInBackground(Void... params) {
+			try {
+				// Connect to the web site
+				Document document = Jsoup.connect(YMLE_URL).get();
+				// Get the html document title
+				title = document.title();
+				Elements YMLEElements = document.select("span[class=\"caption\"]");
+				
+				for(Element e : YMLEElements){
+					YMLEs.add(e.text());
+				}
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return YMLEs;
+		}
+ 
+		@Override
+		protected void onPostExecute(List<String> result) {
+			if (result == null) {
+				Toast.makeText(mContext, "baþaramadýk :(", Toast.LENGTH_SHORT).show();
+			} else {
+				((YMLEFragment) currentFragment).OnYMLEResponseRecieved(result);
+			}
+			super.onPostExecute(result);
 			mProgressDialog.dismiss();
 		}
 	}

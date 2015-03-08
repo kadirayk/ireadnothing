@@ -999,7 +999,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050049;
+        public static final int action_settings=0x7f05004a;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1013,8 +1013,9 @@ containing a value of this type.
         public static final int end=0x7f050013;
         public static final int expand_activities_button=0x7f050026;
         public static final int expanded_menu=0x7f05002c;
-        public static final int fragment_ymle_archived_listview=0x7f050045;
-        public static final int fragment_ymle_listview=0x7f050044;
+        public static final int fragment_ymle_archived_listview=0x7f050046;
+        public static final int fragment_ymle_listview=0x7f050045;
+        public static final int fragment_ymle_textview=0x7f050044;
         public static final int home=0x7f050014;
         public static final int homeActivityArchivedYmleBottomRL=0x7f050043;
         public static final int homeActivityArchivedYmleIV=0x7f050042;
@@ -1058,9 +1059,9 @@ containing a value of this type.
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
         public static final int withText=0x7f05000c;
-        public static final int ymle_detail_author_TV=0x7f050048;
-        public static final int ymle_detail_content_TV=0x7f050047;
-        public static final int ymle_detail_title_TV=0x7f050046;
+        public static final int ymle_detail_author_TV=0x7f050049;
+        public static final int ymle_detail_content_TV=0x7f050048;
+        public static final int ymle_detail_title_TV=0x7f050047;
     }
     public static final class integer {
         /**  The maximum number of action buttons that should be permitted within

@@ -1,0 +1,15 @@
+package com.kadirayk.ireadnothing.network;
+
+public class Controller {
+
+	public Controller() {
+
+	}
+
+	public interface OnTitleResponseRecievedListener {
+		public void OnLoginResponseRecieved(String response);
+		//TODO String?
+	}
+	
+	
+}
