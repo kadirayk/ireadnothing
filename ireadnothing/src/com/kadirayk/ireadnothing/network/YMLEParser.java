@@ -23,10 +23,8 @@ import com.kadirayk.ireadnothing.network.model.YMLE;
 
 public class YMLEParser {
 
-	
 	private Context mContext;
 	private Fragment currentFragment;
-	private TitleTask mTitleTask;
 	private YMLETask mYMLETask;
 	
 	String YMLE_URL = "http://www.eksisozluk.com/debe";
@@ -36,7 +34,6 @@ public class YMLEParser {
 	public YMLEParser(Context context, Fragment fragmet) {
 		mContext = context;
 		currentFragment = fragmet;
-		mTitleTask = new TitleTask();
 		mYMLETask = new YMLETask();
 	}
 	
@@ -50,13 +47,6 @@ public class YMLEParser {
 			return false;
 	}
 	
-	public void callTitleTask() {
-		if (isConnected(mContext)) {
-			mTitleTask.execute();
-		} else {
-			Toast.makeText(mContext, "Sorun internet baðlantýsýnda, bizle alakasý yok.", Toast.LENGTH_SHORT).show();
-		}
-	}
 	
 	public void callYMLETask() {
 		if (isConnected(mContext)) {
@@ -66,49 +56,9 @@ public class YMLEParser {
 		}
 	}
 	
-	
-	// Title AsyncTask
-	private class TitleTask extends AsyncTask<Void, Void, String> {
-		String title;
- 
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			mProgressDialog = new ProgressDialog(mContext);
-			mProgressDialog.setTitle("baþlýk var, baþlýk var");
-			mProgressDialog.setMessage("Loading...");
-			mProgressDialog.setIndeterminate(false);
-			mProgressDialog.show();
-		}
- 
-		@Override
-		protected String doInBackground(Void... params) {
-			try {
-				// Connect to the web site
-				Document document = Jsoup.connect(YMLE_URL).get();
-				// Get the html document title
-				title = document.title();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return title;
-		}
- 
-		@Override
-		protected void onPostExecute(String result) {
-			if (result == null) {
-				Toast.makeText(mContext, "baþaramadýk :(", Toast.LENGTH_SHORT).show();
-			} else {
-				((YMLEFragment) currentFragment).OnTitleResponseRecieved(result);
-			}
-			super.onPostExecute(result);
-			mProgressDialog.dismiss();
-		}
-	}
-	
 	//YMLE AsyncTask
 	private class YMLETask extends AsyncTask<Void, Void, List<YMLE>> {
-		String title;
+		
 		List<String> YMLEs = new ArrayList<String>();
 		List<YMLE> mYMLEs = new ArrayList<YMLE>();
  
@@ -125,18 +75,16 @@ public class YMLEParser {
 		@Override
 		protected List<YMLE> doInBackground(Void... params) {
 			try {
-				// Connect to the web site
+				
 				Document document = Jsoup.connect(YMLE_URL).get();
-				// Get the html document title
-				title = document.title();
+				
 				Elements YMLETitle = document.select("span[class=\"caption\"]");
 				Elements YMLEAuthor = document.select("div[class=\"detail\"]");
-				Elements YMLELink = document.select("ol li a");
-				
-				YMLE mYMLE = new YMLE();
+				Elements YMLELink = document.select("ol li a");		
 				
 				int i = 0;
 				for (Element element : YMLELink) {
+					YMLE mYMLE = new YMLE();
 					mYMLE.setLink(element.attr("href"));
 					mYMLE.setAuthor(YMLEAuthor.get(i).text());
 		            mYMLE.setTitle(YMLETitle.get(i).text());
@@ -147,10 +95,6 @@ public class YMLEParser {
 		            
 		            i++;
 		        }
-				
-//				for(Element e : YMLETitle){
-//					YMLEs.add(e.text());
-//				}
 				
 			} catch (IOException e) {
 				e.printStackTrace();

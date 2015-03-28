@@ -1060,9 +1060,9 @@ containing a value of this type.
         public static final int useLogo=0x7f050003;
         public static final int withText=0x7f05000c;
         public static final int ymleListHeaderLL=0x7f05004a;
-        public static final int ymleListItemDateTV=0x7f05004d;
+        public static final int ymleListItemAuthorTV=0x7f05004d;
         public static final int ymleListItemLL=0x7f05004b;
-        public static final int ymleListItemNumberTV=0x7f05004c;
+        public static final int ymleListItemTitleTV=0x7f05004c;
         public static final int ymle_detail_author_TV=0x7f050049;
         public static final int ymle_detail_content_TV=0x7f050048;
         public static final int ymle_detail_title_TV=0x7f050047;

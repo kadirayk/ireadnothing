@@ -1,9 +1,0 @@
-package com.kadirayk.ireadnothing.model;
-
-public class YMLE {
-
-	private String title;
-	private String link;
-	private String author;
-	
-}

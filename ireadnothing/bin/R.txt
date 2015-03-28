@@ -303,9 +303,9 @@ int id up 0x7f050021
 int id useLogo 0x7f050003
 int id withText 0x7f05000c
 int id ymleListHeaderLL 0x7f05004a
-int id ymleListItemDateTV 0x7f05004d
+int id ymleListItemAuthorTV 0x7f05004d
 int id ymleListItemLL 0x7f05004b
-int id ymleListItemNumberTV 0x7f05004c
+int id ymleListItemTitleTV 0x7f05004c
 int id ymle_detail_author_TV 0x7f050049
 int id ymle_detail_content_TV 0x7f050048
 int id ymle_detail_title_TV 0x7f050047

@@ -17,6 +17,7 @@ public class YMLEAdapter extends BaseAdapter{
 	private Context mContext;
 	private List<YMLE> mYMLEList;
 	private LayoutInflater mInflater;
+	private View mView;
 	
 	
 	public YMLEAdapter(Context context, List<YMLE> YMLEList) {
@@ -44,16 +45,19 @@ public class YMLEAdapter extends BaseAdapter{
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder mHolder = new ViewHolder();
-		View mView = null;
+		mView = null;
 		
 		if(position == 0 ){
 			mView = mInflater.inflate(R.layout.ymle_list_header, null);
+			return mView;
+		}else if(mView == null){
+			mView = mInflater.inflate(R.layout.ymle_list_item, null);
 		}
 		
-		mHolder.ymleListItemNumberTV = (TextView) mView.findViewById(R.id.ymleListItemNumberTV);
-		mHolder.ymleListDateTV = (TextView) mView.findViewById(R.id.ymleListItemDateTV);
+		mHolder.ymleListItemNumberTV = (TextView) mView.findViewById(R.id.ymleListItemTitleTV);
+		mHolder.ymleListDateTV = (TextView) mView.findViewById(R.id.ymleListItemAuthorTV);
 		
-		YMLE item = mYMLEList.get(position);
+		YMLE item = mYMLEList.get(position-1);
 		
 		String title = item.getTitle();
 		String author = item.getAuthor();

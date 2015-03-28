@@ -1,7 +1,0 @@
-package com.kadirayk.ireadnothing.adapters;
-
-import android.widget.BaseAdapter;
-
-public class YMLEAdapter extends BaseAdapter{
-
-}

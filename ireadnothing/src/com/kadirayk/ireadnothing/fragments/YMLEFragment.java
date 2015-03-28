@@ -15,8 +15,8 @@ import android.widget.Toast;
 
 import com.kadirayk.ireadnothing.R;
 import com.kadirayk.ireadnothing.adapters.YMLEAdapter;
-import com.kadirayk.ireadnothing.network.Controller.OnTitleResponseRecievedListener;
-import com.kadirayk.ireadnothing.network.Controller.OnYMLEResponseRecievedListener;
+import com.kadirayk.ireadnothing.network.NetworkController.OnTitleResponseRecievedListener;
+import com.kadirayk.ireadnothing.network.NetworkController.OnYMLEResponseRecievedListener;
 import com.kadirayk.ireadnothing.network.YMLEParser;
 import com.kadirayk.ireadnothing.network.model.YMLE;
 
@@ -38,7 +38,6 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 		setUI();
 		
 		YMLEParser networkHandler = new YMLEParser(getActivity(), this);
-		//networkHandler.callTitleTask();
 		networkHandler.callYMLETask();
 		
 				
