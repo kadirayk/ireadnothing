@@ -38,10 +38,10 @@ public class YMLE {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public int getPlace() {
+	public String getPlace() {
 		return place;
 	}
-	public void setPlace(int place) {
+	public void setPlace(String place) {
 		this.place = place;
 	}
 	

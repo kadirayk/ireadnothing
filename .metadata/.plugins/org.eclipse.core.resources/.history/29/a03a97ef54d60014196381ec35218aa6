@@ -86,7 +86,7 @@ public class YMLEParser {
 				for (Element element : YMLELink) {
 					YMLE mYMLE = new YMLE();
 					
-					mYMLE.setPlace(i+1);
+					mYMLE.setPlace(String.valueOf(i+1));
 		            mYMLE.setTitle(YMLETitle.get(i).text());
 		            mYMLE.setAuthor(YMLEAuthor.get(i).text());
 					mYMLE.setUrl(element.attr("href"));

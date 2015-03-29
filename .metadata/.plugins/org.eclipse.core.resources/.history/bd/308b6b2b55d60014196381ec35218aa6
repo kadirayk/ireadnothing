@@ -22,7 +22,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	//Database creation statement
 	private static final String CREATE_TABLE_YMLES = "create table " + TABLE_YMLES
 				+ "(" + YMLES_COLUMN_ID + " integer primary key autoincrement, "
-				+ YMLES_COLUMN_PLACE + " integer not null, "
+				+ YMLES_COLUMN_PLACE + " text not null, "
 				+ YMLES_COLUMN_TITLE + " text not null, "
 				+ YMLES_COLUMN_AUTHOR + " text not null, "
 				+ YMLES_COLUMN_URL + " text not null, "

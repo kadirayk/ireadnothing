@@ -34,7 +34,8 @@ public class YMLEDataSource {
 	    dbHelper.close();
 	}
 	
-	public YMLE createYMLE(int place, String title, String author, String url, String date) {
+	public YMLE createYMLE(String place, String title, String author, String url, String date) {
+		place = place.trim();
 		title = title.trim();
 		author = author.trim();
 		url = url.trim();
