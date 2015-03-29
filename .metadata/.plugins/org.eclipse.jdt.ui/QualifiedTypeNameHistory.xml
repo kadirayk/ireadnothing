@@ -10,7 +10,6 @@
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.fragments.YMLEArchivedFragment"/>
 <fullyQualifiedTypeName name="android.os.AsyncTask"/>
 <fullyQualifiedTypeName name="android.app.ProgressDialog"/>
-<fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="org.jsoup.nodes.Document"/>
 <fullyQualifiedTypeName name="org.jsoup.Jsoup"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
@@ -24,7 +23,6 @@
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.network.YMLEParser"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.network.model.YMLE"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.network.Controller.OnYMLEResponseRecievedListener"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.R"/>
@@ -34,4 +32,10 @@
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.R.id"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.adapters.YMLEAdapter"/>
+<fullyQualifiedTypeName name="android.app.Application"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.content.SharedPreferences"/>
+<fullyQualifiedTypeName name="android.content.SharedPreferences.Editor"/>
+<fullyQualifiedTypeName name="application.AppController"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
 </qualifiedTypeNameHistroy>

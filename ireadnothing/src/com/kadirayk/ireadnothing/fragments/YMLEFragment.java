@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.kadirayk.ireadnothing.R;
 import com.kadirayk.ireadnothing.adapters.YMLEAdapter;
+import com.kadirayk.ireadnothing.application.AppController;
 import com.kadirayk.ireadnothing.network.NetworkController.OnTitleResponseRecievedListener;
 import com.kadirayk.ireadnothing.network.NetworkController.OnYMLEResponseRecievedListener;
 import com.kadirayk.ireadnothing.network.YMLEParser;
@@ -37,9 +38,14 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 		mView = inflater.inflate(R.layout.fragment_ymle, container, false);
 		setUI();
 		
-		YMLEParser networkHandler = new YMLEParser(getActivity(), this);
-		networkHandler.callYMLETask();
-		
+		if(AppController.getLastYMLEDay(getActivity()) == ""){
+			//first time we check YMLE
+			AppController.storeLastYMLEDay(getActivity(), "today");
+			YMLEParser networkHandler = new YMLEParser(getActivity(), this);
+			networkHandler.callYMLETask();
+		}else if(AppController.getLastYMLEDay(getActivity()).equals("today")){
+			Toast.makeText(getActivity(), "it said todaaay", Toast.LENGTH_SHORT).show();
+		}
 				
 		return mView;
 	}

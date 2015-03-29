@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 
 import com.kadirayk.ireadnothing.R;
+import com.kadirayk.ireadnothing.application.AppController;
 import com.kadirayk.ireadnothing.fragments.FragmentManager.FragmentTransactions;
 import com.kadirayk.ireadnothing.fragments.YMLEArchivedFragment;
 import com.kadirayk.ireadnothing.fragments.YMLEDetailFragment;
@@ -36,6 +37,7 @@ public class HomeActivity extends FragmentActivity implements FragmentTransactio
 		setUI();
 		
 		onYMLEFragmentFired();
+		
 	}
 	
 	private void setUI(){
