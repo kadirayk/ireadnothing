@@ -2,7 +2,7 @@ package com.kadirayk.ireadnothing.network;
 
 import java.util.List;
 
-import com.kadirayk.ireadnothing.network.model.YMLE;
+import com.kadirayk.ireadnothing.model.YMLE;
 
 public class NetworkController {
 

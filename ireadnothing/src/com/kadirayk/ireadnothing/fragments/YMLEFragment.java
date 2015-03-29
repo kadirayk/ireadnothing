@@ -16,9 +16,10 @@ import android.widget.Toast;
 import com.kadirayk.ireadnothing.R;
 import com.kadirayk.ireadnothing.adapters.YMLEAdapter;
 import com.kadirayk.ireadnothing.application.AppController;
+import com.kadirayk.ireadnothing.database.YMLEDataSource;
 import com.kadirayk.ireadnothing.network.NetworkController.OnTitleResponseRecievedListener;
 import com.kadirayk.ireadnothing.network.NetworkController.OnYMLEResponseRecievedListener;
-import com.kadirayk.ireadnothing.network.model.YMLE;
+import com.kadirayk.ireadnothing.model.YMLE;
 import com.kadirayk.ireadnothing.network.YMLEParser;
 
 public class YMLEFragment extends Fragment implements OnItemClickListener, OnTitleResponseRecievedListener, OnYMLEResponseRecievedListener{
@@ -27,8 +28,9 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 	private ListView fragment_ymle_listview;
 	private TextView fragment_ymle_textview;
 	
-	private List<YMLE> YMLEList;
-	private YMLE YMLEListItem;
+	private YMLEDataSource dataSource;
+	private List<YMLE> ymleList;
+	
 	private YMLEAdapter mAdapter;
 
 	@Override
@@ -38,12 +40,21 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 		mView = inflater.inflate(R.layout.fragment_ymle, container, false);
 		setUI();
 		
+		dataSource = new YMLEDataSource(getActivity());
+		dataSource.open();
+		
 		if(AppController.getLastYMLEDay(getActivity()) == ""){
-			//first time we check YMLE
+			//if it is first time call network task
+			
 			AppController.storeLastYMLEDay(getActivity(), "today");
 			YMLEParser networkHandler = new YMLEParser(getActivity(), this);
 			networkHandler.callYMLETask();
+			
 		}else if(AppController.getLastYMLEDay(getActivity()).equals("today")){
+			//if already stored do not call network task
+			
+			ymleList  = dataSource.getAllYMLES();
+			updateAdapter(ymleList);
 			Toast.makeText(getActivity(), "it said todaaay", Toast.LENGTH_SHORT).show();
 		}
 				
@@ -57,6 +68,12 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 		
 	}
 
+	private void updateAdapter(List<YMLE> ymleList){
+		mAdapter = new YMLEAdapter(getActivity(), ymleList);
+		fragment_ymle_listview.setAdapter(mAdapter);
+		mAdapter.notifyDataSetChanged();
+	}
+	
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
@@ -75,9 +92,12 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 
 		Toast.makeText(getActivity(), YMLEs.get(0).getTitle(), Toast.LENGTH_SHORT).show();
 		
-		mAdapter = new YMLEAdapter(getActivity(), YMLEs);
-		fragment_ymle_listview.setAdapter(mAdapter);
-		mAdapter.notifyDataSetChanged();
+		for(YMLE ymle : YMLEs){
+			dataSource.createYMLE(ymle.getPlace(), ymle.getTitle(), ymle.getAuthor(), ymle.getUrl(), ymle.getDate());
+		}
+		
+		ymleList  = dataSource.getAllYMLES();
+		updateAdapter(ymleList);
 		
 	}
 	

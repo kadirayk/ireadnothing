@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.kadirayk.ireadnothing.R;
-import com.kadirayk.ireadnothing.network.model.YMLE;
+import com.kadirayk.ireadnothing.model.YMLE;
 
 public class YMLEAdapter extends BaseAdapter{
 	
@@ -54,22 +54,22 @@ public class YMLEAdapter extends BaseAdapter{
 			mView = mInflater.inflate(R.layout.ymle_list_item, null);
 		}
 		
-		mHolder.ymleListItemNumberTV = (TextView) mView.findViewById(R.id.ymleListItemTitleTV);
-		mHolder.ymleListDateTV = (TextView) mView.findViewById(R.id.ymleListItemAuthorTV);
+		mHolder.ymleListItemTitleTV = (TextView) mView.findViewById(R.id.ymleListItemTitleTV);
+		mHolder.ymleListAuthorTV = (TextView) mView.findViewById(R.id.ymleListItemAuthorTV);
 		
 		YMLE item = mYMLEList.get(position-1);
 		
 		String title = item.getTitle();
 		String author = item.getAuthor();
 		
-		mHolder.ymleListItemNumberTV.setText(title);
-		mHolder.ymleListDateTV.setText(author);
+		mHolder.ymleListItemTitleTV.setText(title);
+		mHolder.ymleListAuthorTV.setText(author);
 		
 		return mView;
 	}
 	
 	private class ViewHolder {
-		TextView ymleListItemNumberTV, ymleListDateTV;
+		TextView ymleListItemTitleTV, ymleListAuthorTV;
 	}
 
 }

@@ -3,7 +3,7 @@ package com.kadirayk.ireadnothing.database;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.kadirayk.ireadnothing.database.model.YMLE;
+import com.kadirayk.ireadnothing.model.YMLE;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -35,6 +35,7 @@ public class YMLEDataSource {
 	}
 	
 	public YMLE createYMLE(String place, String title, String author, String url, String date) {
+		place = place.trim();
 		title = title.trim();
 		author = author.trim();
 		url = url.trim();
@@ -77,7 +78,7 @@ public class YMLEDataSource {
 	      ymles.add(ymle);
 	      cursor.moveToNext();
 	    }
-	    // make sure to close the cursor
+	    
 	    cursor.close();
 	    return ymles;
 	  }

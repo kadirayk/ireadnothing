@@ -4,3 +4,7 @@
 1427655306561	Rename package 'application'
 1427656768371	Rename package 'com.kadirayk.ireadnothing.network.model'
 1427656832163	Rename package 'com.kadirayk.ireadnothing.model'
+1427659012797	Rename package 'com.kadirayk.ireadnothing.database.model'
+1427659044553	Delete element
+1427659295247	Rename field 'ymleListItemNumberTV'
+1427659307600	Rename field 'ymleListDateTV'

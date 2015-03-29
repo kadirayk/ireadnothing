@@ -12451,3 +12451,6 @@ org.eclipse.jdt.internal.compiler.problem.AbortCompilation: Pb(324) The type jav
 	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:105)
 	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:406)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:173)
+
+!ENTRY org.eclipse.ui 4 4 2015-03-29 23:26:30.865
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.ProblemView.

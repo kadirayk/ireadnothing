@@ -19,7 +19,7 @@ import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.kadirayk.ireadnothing.fragments.YMLEFragment;
-import com.kadirayk.ireadnothing.network.model.YMLE;
+import com.kadirayk.ireadnothing.model.YMLE;
 
 public class YMLEParser {
 
@@ -85,10 +85,15 @@ public class YMLEParser {
 				int i = 0;
 				for (Element element : YMLELink) {
 					YMLE mYMLE = new YMLE();
-					mYMLE.setLink(element.attr("href"));
-					mYMLE.setAuthor(YMLEAuthor.get(i).text());
+					
+					mYMLE.setPlace(String.valueOf(i+1));
 		            mYMLE.setTitle(YMLETitle.get(i).text());
-		            
+		            mYMLE.setAuthor(YMLEAuthor.get(i).text());
+					mYMLE.setUrl(element.attr("href"));
+					//TODO
+					mYMLE.setDate("today");
+					
+					          
 		            mYMLEs.add(mYMLE);
 		            
 					YMLEs.add(element.attr("href"));
