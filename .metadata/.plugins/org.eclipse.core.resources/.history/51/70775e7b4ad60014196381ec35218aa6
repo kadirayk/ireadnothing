@@ -1,0 +1,57 @@
+package com.kadirayk.ireadnothing.database;
+
+import com.kadirayk.ireadnothing.database.model.YMLE;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+
+public class YMLEDataSource {
+
+	private SQLiteDatabase database;
+	private MySQLiteHelper dbHelper;
+	private String[] allColumns = { MySQLiteHelper.YMLES_COLUMN_ID,
+		    MySQLiteHelper.YMLES_COLUMN_TITLE,
+		    MySQLiteHelper.YMLES_COLUMN_AUTHOR,
+		    MySQLiteHelper.YMLES_COLUMN_URL,
+		    MySQLiteHelper.YMLES_COLUMN_DATE };	
+	
+	public YMLEDataSource(Context context) {
+	    dbHelper = new MySQLiteHelper(context, MySQLiteHelper.DATABASE_NAME, null, MySQLiteHelper.DATABASE_VERSION);
+	}
+
+	public void open() throws SQLException {
+	    database = dbHelper.getWritableDatabase();
+	}
+
+	public void close() {
+	    dbHelper.close();
+	}
+	
+	public YMLE createContact(String title, String author, String url, String date) {
+		title = title.trim();
+		author = author.trim();
+		url = url.trim();
+		date = date.trim();
+		
+		ContentValues values = new ContentValues();
+	    values.put(MySQLiteHelper.YMLES_COLUMN_TITLE, title);
+	    values.put(MySQLiteHelper.YMLES_COLUMN_AUTHOR, author);
+	    values.put(MySQLiteHelper.YMLES_COLUMN_URL, url);
+	    values.put(MySQLiteHelper.YMLES_COLUMN_DATE, date);
+	    
+	    long insertId = database.insert(MySQLiteHelper.TABLE_YMLES, null,
+	        values);
+	    Cursor cursor = database.query(MySQLiteHelper.TABLE_YMLES,
+	        allColumns, MySQLiteHelper.YMLES_COLUMN_ID + " = " + insertId, null,
+	        null, null, null);
+	    cursor.moveToFirst();
+	    YMLE newYMLE = cursorToContact(cursor);
+	    cursor.close();
+	    return newYMLE;
+ 
+	  }
+	
+}

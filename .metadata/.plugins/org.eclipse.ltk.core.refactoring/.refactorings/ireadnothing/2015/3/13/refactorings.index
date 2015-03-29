@@ -2,3 +2,5 @@
 1427556597147	Convert local variable 'mView' to field
 1427556665450	Rename field 'myView'
 1427655306561	Rename package 'application'
+1427656768371	Rename package 'com.kadirayk.ireadnothing.network.model'
+1427656832163	Rename package 'com.kadirayk.ireadnothing.model'

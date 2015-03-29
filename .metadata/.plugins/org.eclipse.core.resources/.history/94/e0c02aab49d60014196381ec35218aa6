@@ -1,0 +1,31 @@
+package com.kadirayk.ireadnothing.database;
+
+import android.content.Context;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+
+public class YMLEDataSource {
+
+	private SQLiteDatabase database;
+	private MySQLiteHelper dbHelper;
+	private String[] allColumns = { MySQLiteHelper.YMLES_COLUMN_ID,
+		    MySQLiteHelper.YMLES_COLUMN_TITLE,
+		    MySQLiteHelper.YMLES_COLUMN_AUTHOR,
+		    MySQLiteHelper.YMLES_COLUMN_URL,
+		    MySQLiteHelper.YMLES_COLUMN_DATE };	
+	
+	public YMLEDataSource(Context context) {
+	    dbHelper = new MySQLiteHelper(context, MySQLiteHelper.DATABASE_NAME, null, MySQLiteHelper.DATABASE_VERSION);
+	}
+
+	public void open() throws SQLException {
+	    database = dbHelper.getWritableDatabase();
+	}
+
+	public void close() {
+	    dbHelper.close();
+	}
+	
+	
+	
+}

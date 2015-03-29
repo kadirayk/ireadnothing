@@ -1,0 +1,12 @@
+package com.kadirayk.ireadnothing.database.model;
+
+public class YMLE {
+
+	private long id;
+	private String title;
+	private String author;
+	private String url;
+	private String date;
+	
+	
+}

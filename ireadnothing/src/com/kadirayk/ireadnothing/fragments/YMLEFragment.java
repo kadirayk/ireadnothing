@@ -18,8 +18,8 @@ import com.kadirayk.ireadnothing.adapters.YMLEAdapter;
 import com.kadirayk.ireadnothing.application.AppController;
 import com.kadirayk.ireadnothing.network.NetworkController.OnTitleResponseRecievedListener;
 import com.kadirayk.ireadnothing.network.NetworkController.OnYMLEResponseRecievedListener;
-import com.kadirayk.ireadnothing.network.YMLEParser;
 import com.kadirayk.ireadnothing.network.model.YMLE;
+import com.kadirayk.ireadnothing.network.YMLEParser;
 
 public class YMLEFragment extends Fragment implements OnItemClickListener, OnTitleResponseRecievedListener, OnYMLEResponseRecievedListener{
 
