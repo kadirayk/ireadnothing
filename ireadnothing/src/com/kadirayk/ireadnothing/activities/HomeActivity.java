@@ -1,9 +1,9 @@
 package com.kadirayk.ireadnothing.activities;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
+import android.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
@@ -59,7 +59,7 @@ public class HomeActivity extends FragmentActivity implements FragmentTransactio
 			mYMLEFragment = new YMLEFragment();
 		}
 		currentFragment = mYMLEFragment;
-		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+		FragmentTransaction ft = getFragmentManager().beginTransaction();
 		ft.replace(R.id.homeActivityFragmentContainer, mYMLEFragment);
 		ft.commit();
 		
@@ -72,7 +72,7 @@ public class HomeActivity extends FragmentActivity implements FragmentTransactio
 			mYMLEDetailFragment = new YMLEDetailFragment();
 		}
 		currentFragment = mYMLEDetailFragment;
-		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+		FragmentTransaction ft = getFragmentManager().beginTransaction();
 		ft.replace(R.id.homeActivityFragmentContainer, mYMLEDetailFragment);
 		ft.commit();
 		
@@ -85,8 +85,8 @@ public class HomeActivity extends FragmentActivity implements FragmentTransactio
 			mArchivedFragment = new YMLEArchivedFragment();
 		}
 		currentFragment = mArchivedFragment;
-		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-		ft.replace(R.id.homeActivityFragmentContainer, mArchivedFragment);
+		FragmentTransaction ft = getFragmentManager().beginTransaction();
+		ft.replace(R.id.homeActivityFragmentContainer, (Fragment) mArchivedFragment);
 		ft.commit();
 		
 		

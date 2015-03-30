@@ -1,0 +1,148 @@
+package com.kadirayk.ireadnothing.activities;
+
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.RelativeLayout;
+
+import com.kadirayk.ireadnothing.R;
+import com.kadirayk.ireadnothing.adapters.ScreenSlidePagerAdapter;
+import com.kadirayk.ireadnothing.application.AppController;
+import com.kadirayk.ireadnothing.fragments.FragmentManager.FragmentTransactions;
+import com.kadirayk.ireadnothing.fragments.YMLEArchivedFragment;
+import com.kadirayk.ireadnothing.fragments.YMLEDetailFragment;
+import com.kadirayk.ireadnothing.fragments.YMLEFragment;
+
+public class HomeActivity extends FragmentActivity implements FragmentTransactions, OnClickListener{
+	
+	private YMLEFragment mYMLEFragment;
+	private YMLEDetailFragment mYMLEDetailFragment;
+	private YMLEArchivedFragment mArchivedFragment;
+	private Fragment currentFragment;
+	
+	private RelativeLayout homeActivityYmleRL;
+	private RelativeLayout homeActivityArchivedYmleRL;
+	
+	private RelativeLayout homeActivityYmleBottomRL;
+	private RelativeLayout homeActivityArchivedYmleBottomRL;
+	
+	private ViewPager mPager;
+    private PagerAdapter mPagerAdapter;
+
+	@SuppressLint("NewApi")
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		setUI();
+		
+		// Instantiate a ViewPager and a PagerAdapter.
+        mPager = (ViewPager) findViewById(R.id.activity_home_pager);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
+        mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @SuppressLint("NewApi")
+			@Override
+            public void onPageSelected(int position) {
+                invalidateOptionsMenu();
+            }
+        });
+		
+//		onYMLEFragmentFired();
+		
+	}
+	
+	private void setUI(){
+		
+		homeActivityYmleRL = (RelativeLayout) findViewById(R.id.homeActivityYmleRL);
+		homeActivityYmleRL.setOnClickListener(this);
+		homeActivityYmleBottomRL = (RelativeLayout) findViewById(R.id.homeActivityYmleBottomRL);
+		
+		homeActivityArchivedYmleRL = (RelativeLayout) findViewById(R.id.homeActivityArchivedYmleRL);
+		homeActivityArchivedYmleRL.setOnClickListener(this);
+		homeActivityArchivedYmleBottomRL = (RelativeLayout) findViewById(R.id.homeActivityArchivedYmleBottomRL);
+		
+	}
+
+	@Override
+	public void onYMLEFragmentFired() {
+
+		if (mYMLEFragment == null){
+			mYMLEFragment = new YMLEFragment();
+		}
+		currentFragment = mYMLEFragment;
+		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//		ft.replace(R.id.homeActivityFragmentContainer, mYMLEFragment);
+//		ft.commit();
+		
+	}
+
+	@Override
+	public void onYMLEDetailFragmentFired() {
+		
+		if (mYMLEDetailFragment == null){
+			mYMLEDetailFragment = new YMLEDetailFragment();
+		}
+		currentFragment = mYMLEDetailFragment;
+		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//		ft.replace(R.id.homeActivityFragmentContainer, mYMLEDetailFragment);
+//		ft.commit();
+		
+	}
+
+	@Override
+	public void onYMLEArchivedFragmentFired() {
+
+		if (mArchivedFragment == null){
+			mArchivedFragment = new YMLEArchivedFragment();
+		}
+		currentFragment = mArchivedFragment;
+		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//		ft.replace(R.id.homeActivityFragmentContainer, mArchivedFragment);
+//		ft.commit();
+		
+		
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.homeActivityYmleRL:
+			onYMLEFragmentFired();
+			setTopBarSelection(0);
+			break;
+		case R.id.homeActivityArchivedYmleRL:
+			onYMLEArchivedFragmentFired();
+			setTopBarSelection(1);
+			break;
+			default:
+			break;
+		}
+		
+	}
+
+	public void setTopBarSelection(int i){
+		switch (i) {
+		case 0:
+			homeActivityYmleBottomRL.setBackgroundColor(getResources().getColor(R.color.white));
+			homeActivityArchivedYmleBottomRL.setBackgroundColor(getResources().getColor(R.color.themeColor));
+			break;
+		case 1:
+			homeActivityYmleBottomRL.setBackgroundColor(getResources().getColor(R.color.themeColor));
+			homeActivityArchivedYmleBottomRL.setBackgroundColor(getResources().getColor(R.color.white));
+			break;
+		case 3:
+			//hide bottom bar
+		default:
+			break;
+		}
+	}
+	
+}

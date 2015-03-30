@@ -11,13 +11,10 @@
         android:text="YMLE archived"
         />
     
-    <ListView 
-        android:id="@+id/fragment_ymle_archived_listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="#e0e0e0"
-        android:dividerHeight="0.5dp"
-        />
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_YMLE_archived_pager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
     
 
 </LinearLayout>

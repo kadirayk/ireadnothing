@@ -1,0 +1,5 @@
+package com.kadirayk.ireadnothing.adapters;
+
+public class ScreenSlidePagerAdapter {
+
+}

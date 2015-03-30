@@ -23,8 +23,6 @@
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.network.YMLEParser"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.network.model.YMLE"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.network.Controller.OnYMLEResponseRecievedListener"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.R"/>
@@ -33,9 +31,20 @@
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.R.id"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.adapters.YMLEAdapter"/>
 <fullyQualifiedTypeName name="android.app.Application"/>
-<fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="android.content.SharedPreferences"/>
 <fullyQualifiedTypeName name="android.content.SharedPreferences.Editor"/>
 <fullyQualifiedTypeName name="application.AppController"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="android.database.sqlite.SQLiteDatabase.CursorFactory"/>
+<fullyQualifiedTypeName name="android.database.sqlite.SQLiteOpenHelper"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.database.SQLException"/>
+<fullyQualifiedTypeName name="com.kadirayk.ireadnothing.database.model.YMLE"/>
+<fullyQualifiedTypeName name="android.content.ContentValues"/>
+<fullyQualifiedTypeName name="android.database.Cursor"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.kadirayk.ireadnothing.database.MySQLiteHelper"/>
+<fullyQualifiedTypeName name="com.kadirayk.ireadnothing.database.YMLEDataSource"/>
 </qualifiedTypeNameHistroy>

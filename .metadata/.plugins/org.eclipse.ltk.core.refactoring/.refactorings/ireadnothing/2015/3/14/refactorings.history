@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.kadirayk.ireadnothing.adapters.YMLEAdapter&apos; to &apos;YMLEListAdapter&apos;&#x0D;&#x0A;- Original project: &apos;ireadnothing&apos;&#x0D;&#x0A;- Original element: &apos;com.kadirayk.ireadnothing.adapters.YMLEAdapter&apos;&#x0D;&#x0A;- Renamed element: &apos;com.kadirayk.ireadnothing.adapters.YMLEListAdapter&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;YMLEAdapter&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.kadirayk.ireadnothing.adapters{YMLEAdapter.java[YMLEAdapter" matchStrategy="1" name="YMLEListAdapter" qualified="false" references="true" similarDeclarations="false" stamp="1427740469145" textual="false" version="1.0"/>
+</session>

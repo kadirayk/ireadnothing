@@ -3,7 +3,7 @@ package com.kadirayk.ireadnothing.fragments;
 import java.util.List;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kadirayk.ireadnothing.R;
-import com.kadirayk.ireadnothing.adapters.YMLEAdapter;
+import com.kadirayk.ireadnothing.adapters.YMLEListAdapter;
 import com.kadirayk.ireadnothing.application.AppController;
 import com.kadirayk.ireadnothing.database.YMLEDataSource;
 import com.kadirayk.ireadnothing.network.NetworkController.OnTitleResponseRecievedListener;
@@ -31,7 +31,7 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 	private YMLEDataSource dataSource;
 	private List<YMLE> ymleList;
 	
-	private YMLEAdapter mAdapter;
+	private YMLEListAdapter mAdapter;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,7 +69,7 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 	}
 
 	private void updateAdapter(List<YMLE> ymleList){
-		mAdapter = new YMLEAdapter(getActivity(), ymleList);
+		mAdapter = new YMLEListAdapter(getActivity(), ymleList);
 		fragment_ymle_listview.setAdapter(mAdapter);
 		mAdapter.notifyDataSetChanged();
 	}

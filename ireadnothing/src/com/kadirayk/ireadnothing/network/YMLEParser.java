@@ -15,7 +15,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.widget.Toast;
 
 import com.kadirayk.ireadnothing.fragments.YMLEFragment;

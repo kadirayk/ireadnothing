@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ireadnothing</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac leo vel sapien lobortis ullamcorper. Vestibulum nec orci at nunc condimentum posuere id non augue. Phasellus porta massa sit amet elit pretium posuere. Morbi massa purus, pellentesque vel tellus at, vehicula feugiat ex. Nulla non urna quis sem sollicitudin lobortis. Suspendisse viverra vehicula tortor, vel finibus elit fermentum eget. Nunc mauris risus, vehicula hendrerit volutpat vitae, consectetur ac tortor.
+
+Donec eget accumsan est. Nulla sed laoreet leo, ultrices faucibus sapien. Sed sed semper est. Vivamus a congue ex, in elementum elit. Donec eu augue iaculis, faucibus lacus sed, sagittis massa. Nulla aliquam felis quis leo luctus sollicitudin. Quisque eu lorem elementum, ultricies risus pellentesque, maximus nisl. Etiam ut elit ante. Pellentesque mattis elit enim, ultricies consectetur leo facilisis eget. Mauris ut sem dui. Sed suscipit, mauris eu gravida cursus, dolor lectus dapibus dolor, in luctus nibh velit quis dui. Nulla cursus ipsum elementum tristique interdum. Maecenas et orci posuere, posuere urna ut, aliquet tellus. Curabitur pellentesque dolor nec tempus molestie.</string>
+    
+</resources>

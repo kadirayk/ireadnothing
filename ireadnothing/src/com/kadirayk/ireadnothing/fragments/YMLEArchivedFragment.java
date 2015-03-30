@@ -1,9 +1,13 @@
 package com.kadirayk.ireadnothing.fragments;
 
 import com.kadirayk.ireadnothing.R;
+import com.kadirayk.ireadnothing.adapters.ScreenSlidePagerAdapter;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +19,8 @@ public class YMLEArchivedFragment extends Fragment implements OnItemClickListene
 
 	private View mView;
 	private ListView fragment_ymle_archived_listview;
-	
+	private ViewPager mPager;
+    private PagerAdapter mPagerAdapter;
 	
 	
 	@Override
@@ -29,8 +34,17 @@ public class YMLEArchivedFragment extends Fragment implements OnItemClickListene
 
 	private void setUI(){
 		
-		fragment_ymle_archived_listview = (ListView) mView.findViewById(R.id.fragment_ymle_archived_listview);
-		fragment_ymle_archived_listview.setOnItemClickListener(this);
+		// Instantiate a ViewPager and a PagerAdapter.
+        mPager = (ViewPager) mView.findViewById(R.id.fragment_YMLE_archived_pager);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
+        mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @SuppressLint("NewApi")
+			@Override
+            public void onPageSelected(int position) {
+//                invalidateOptionsMenu();
+            }
+        });
 		
 	}
 	
