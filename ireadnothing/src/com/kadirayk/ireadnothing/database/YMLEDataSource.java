@@ -16,6 +16,7 @@ public class YMLEDataSource {
 	private SQLiteDatabase database;
 	private MySQLiteHelper dbHelper;
 	private String[] allColumns = { MySQLiteHelper.YMLES_COLUMN_ID,
+			MySQLiteHelper.YMLES_COLUMN_GROUP,
 			MySQLiteHelper.YMLES_COLUMN_PLACE,
 		    MySQLiteHelper.YMLES_COLUMN_TITLE,
 		    MySQLiteHelper.YMLES_COLUMN_AUTHOR,
@@ -34,13 +35,14 @@ public class YMLEDataSource {
 	    dbHelper.close();
 	}
 	
-	public YMLE createYMLE(int place, String title, String author, String url, String date) {
+	public YMLE createYMLE(int group, int place, String title, String author, String url, String date) {
 		title = title.trim();
 		author = author.trim();
 		url = url.trim();
 		date = date.trim();
 		
 		ContentValues values = new ContentValues();
+		values.put(MySQLiteHelper.YMLES_COLUMN_GROUP, group);
 		values.put(MySQLiteHelper.YMLES_COLUMN_PLACE, place);
 	    values.put(MySQLiteHelper.YMLES_COLUMN_TITLE, title);
 	    values.put(MySQLiteHelper.YMLES_COLUMN_AUTHOR, author);
@@ -113,14 +115,31 @@ public class YMLEDataSource {
 		return lastDate;
 	}
 	
+	public String getDatebyGroup(int group){
+		String date = "";
+		
+		Cursor cursor = database.rawQuery("SELECT " + MySQLiteHelper.YMLES_COLUMN_DATE + " FROM "
+				+ MySQLiteHelper.TABLE_YMLES + " WHERE " + MySQLiteHelper.YMLES_COLUMN_GROUP + " = " + group
+				+ " ORDER BY " + MySQLiteHelper.YMLES_COLUMN_PLACE + " DESC LIMIT 1", null);
+		
+		cursor.moveToFirst();
+		
+		if(cursor!=null){
+			date = cursor.getString(0);
+		}
+		
+		return date;
+	}
+	
 	private YMLE cursorToYMLE(Cursor cursor) {
 		YMLE ymle = new YMLE();
 		ymle.setId(cursor.getLong(0));
-		ymle.setPlace(cursor.getInt(1));
-		ymle.setTitle(cursor.getString(2));
-		ymle.setAuthor(cursor.getString(3));
-		ymle.setUrl(cursor.getString(4));
-		ymle.setDate(cursor.getString(5));
+		ymle.setGroup(cursor.getInt(1));
+		ymle.setPlace(cursor.getInt(2));
+		ymle.setTitle(cursor.getString(3));
+		ymle.setAuthor(cursor.getString(4));
+		ymle.setUrl(cursor.getString(5));
+		ymle.setDate(cursor.getString(6));
 	    return ymle;
 	  }
 	

@@ -83,10 +83,14 @@ public class YMLEParser {
 				Elements YMLEAuthor = document.select("div[class=\"detail\"]");
 				Elements YMLELink = document.select("ol li a");		
 				
+				int lastGroup = AppController.getLastGroup(mContext);
+				
 				int i = 0;
 				String today = AppController.getSystemDate();
 				for (Element element : YMLELink) {
 					YMLE mYMLE = new YMLE();
+					
+					mYMLE.setGroup(lastGroup);
 					
 					mYMLE.setPlace(i+1);
 		            mYMLE.setTitle(YMLETitle.get(i).text());

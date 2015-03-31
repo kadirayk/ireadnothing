@@ -10,6 +10,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 
 	public static final String TABLE_YMLES = "ymles";
 	public static final String YMLES_COLUMN_ID = "_id";
+	public static final String YMLES_COLUMN_GROUP = "groupID";
 	public static final String YMLES_COLUMN_PLACE = "place";
 	public static final String YMLES_COLUMN_TITLE = "title";
 	public static final String YMLES_COLUMN_AUTHOR = "author";
@@ -22,6 +23,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	//Database creation statement
 	private static final String CREATE_TABLE_YMLES = "create table " + TABLE_YMLES
 				+ "(" + YMLES_COLUMN_ID + " integer primary key autoincrement, "
+				+ YMLES_COLUMN_GROUP + " integer not null, "
 				+ YMLES_COLUMN_PLACE + " integer not null, "
 				+ YMLES_COLUMN_TITLE + " text not null, "
 				+ YMLES_COLUMN_AUTHOR + " text not null, "

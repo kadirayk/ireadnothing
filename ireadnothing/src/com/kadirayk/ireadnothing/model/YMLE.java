@@ -3,6 +3,13 @@ package com.kadirayk.ireadnothing.model;
 public class YMLE {
 
 	private long id;
+	private int group;
+	public int getGroup() {
+		return group;
+	}
+	public void setGroup(int group) {
+		this.group = group;
+	}
 	private int place; 
 	private String title;
 	private String author;

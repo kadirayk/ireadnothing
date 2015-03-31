@@ -34,6 +34,19 @@ public class AppController extends Application{
 		mEditor.putString("lastDay", lastYMLEDay);
 		mEditor.commit();
 	}
+	
+	public static int getLastGroup(Context context){
+		SharedPreferences mPrefs = context.getSharedPreferences("AppInfo", MODE_PRIVATE);
+		int lastGroup = mPrefs.getInt("lastGroup", 1);
+		return lastGroup;
+	}
+	
+	public static void storeLastGroup(Context context, int lastGroup){
+		SharedPreferences mPrefs = context.getSharedPreferences("AppInfo", MODE_PRIVATE);
+		Editor mEditor = mPrefs.edit();
+		mEditor.putInt("lastDay", lastGroup);
+		mEditor.commit();
+	}
 
 	public static String getSystemDate(){
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
