@@ -1,5 +1,8 @@
 package com.kadirayk.ireadnothing.application;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -32,5 +35,10 @@ public class AppController extends Application{
 		mEditor.commit();
 	}
 
+	public static String getSystemDate(){
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+		String currentDate = sdf.format(new Date());
+		return currentDate;
+	}
 	
 }

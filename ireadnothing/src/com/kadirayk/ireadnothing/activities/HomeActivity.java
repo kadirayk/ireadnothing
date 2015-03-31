@@ -36,7 +36,7 @@ public class HomeActivity extends FragmentActivity implements FragmentTransactio
 		setContentView(R.layout.activity_home);
 		setUI();
 		
-		onYMLEFragmentFired();
+		onYMLEArchivedFragmentFired();
 		
 	}
 	

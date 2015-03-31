@@ -1018,8 +1018,8 @@ containing a value of this type.
         public static final int expand_activities_button=0x7f050028;
         public static final int expanded_menu=0x7f05002e;
         public static final int fragment_YMLE_archived_pager=0x7f05004a;
+        public static final int fragment_ymle_date=0x7f050048;
         public static final int fragment_ymle_listview=0x7f050049;
-        public static final int fragment_ymle_textview=0x7f050048;
         public static final int home=0x7f050014;
         public static final int homeActivityArchivedYmleBottomRL=0x7f050045;
         public static final int homeActivityArchivedYmleIV=0x7f050044;

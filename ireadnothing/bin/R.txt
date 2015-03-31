@@ -261,8 +261,8 @@ int id end 0x7f050013
 int id expand_activities_button 0x7f050028
 int id expanded_menu 0x7f05002e
 int id fragment_YMLE_archived_pager 0x7f05004a
+int id fragment_ymle_date 0x7f050048
 int id fragment_ymle_listview 0x7f050049
-int id fragment_ymle_textview 0x7f050048
 int id home 0x7f050014
 int id homeActivityArchivedYmleBottomRL 0x7f050045
 int id homeActivityArchivedYmleIV 0x7f050044

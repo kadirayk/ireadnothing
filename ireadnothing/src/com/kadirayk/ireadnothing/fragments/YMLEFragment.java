@@ -26,13 +26,22 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 
 	private View mView;
 	private ListView fragment_ymle_listview;
-	private TextView fragment_ymle_textview;
+	private TextView fragment_ymle_date;
 	
 	private YMLEDataSource dataSource;
 	private List<YMLE> ymleList;
 	
 	private YMLEListAdapter mAdapter;
 
+	public static YMLEFragment create(int pageNumber) {
+		YMLEFragment fragment = new YMLEFragment();
+        Bundle args = new Bundle();
+        args.putInt("page", pageNumber);
+        fragment.setArguments(args);
+        return fragment;
+    }
+	
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -43,26 +52,28 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 		dataSource = new YMLEDataSource(getActivity());
 		dataSource.open();
 		
+		String today = AppController.getSystemDate();
+		
 		if(AppController.getLastYMLEDay(getActivity()) == ""){
 			//if it is first time call network task
 			
-			AppController.storeLastYMLEDay(getActivity(), "today");
+			AppController.storeLastYMLEDay(getActivity(), today);
 			YMLEParser networkHandler = new YMLEParser(getActivity(), this);
 			networkHandler.callYMLETask();
 			
-		}else if(AppController.getLastYMLEDay(getActivity()).equals("today")){
+		}else if(AppController.getLastYMLEDay(getActivity()).equals(today)){
 			//if already stored do not call network task
 			
 			ymleList  = dataSource.getAllYMLES();
 			updateAdapter(ymleList);
-			Toast.makeText(getActivity(), "it said todaaay", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getActivity(), AppController.getSystemDate(), Toast.LENGTH_SHORT).show();
 		}
 				
 		return mView;
 	}
 	
 	private void setUI(){
-		fragment_ymle_textview = (TextView) mView.findViewById(R.id.fragment_ymle_textview);
+		fragment_ymle_date = (TextView) mView.findViewById(R.id.fragment_ymle_date);
 		fragment_ymle_listview = (ListView) mView.findViewById(R.id.fragment_ymle_listview);
 		fragment_ymle_listview.setOnItemClickListener(this);
 		
@@ -83,7 +94,7 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 	@Override
 	public void OnTitleResponseRecieved(String response) {
 		
-		fragment_ymle_textview.setText(response);
+		fragment_ymle_date.setText(response);
 		
 	}
 

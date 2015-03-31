@@ -3,16 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    
-      <TextView 
+
+    <TextView 
+        android:id="@+id/fragment_ymle_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="YMLE archived"
+        android:text="YMLE "
         />
     
     <ListView 
-        android:id="@+id/fragment_ymle_archived_listview"
+        android:id="@+id/fragment_ymle_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="#e0e0e0"

@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.support.v13.app.FragmentStatePagerAdapter;
 
 import com.kadirayk.ireadnothing.fragments.ScreenSlidePageFragment;
+import com.kadirayk.ireadnothing.fragments.YMLEFragment;
 
 /**
  * A simple pager adapter that represents 5 {@link ScreenSlidePageFragment} objects, in
@@ -17,7 +18,7 @@ public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return ScreenSlidePageFragment.create(position);
+        return YMLEFragment.create(position);
     }
 
     @Override

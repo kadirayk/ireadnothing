@@ -18,6 +18,7 @@ import android.os.AsyncTask;
 import android.app.Fragment;
 import android.widget.Toast;
 
+import com.kadirayk.ireadnothing.application.AppController;
 import com.kadirayk.ireadnothing.fragments.YMLEFragment;
 import com.kadirayk.ireadnothing.model.YMLE;
 
@@ -83,6 +84,7 @@ public class YMLEParser {
 				Elements YMLELink = document.select("ol li a");		
 				
 				int i = 0;
+				String today = AppController.getSystemDate();
 				for (Element element : YMLELink) {
 					YMLE mYMLE = new YMLE();
 					
@@ -91,7 +93,7 @@ public class YMLEParser {
 		            mYMLE.setAuthor(YMLEAuthor.get(i).text());
 					mYMLE.setUrl(element.attr("href"));
 					//TODO
-					mYMLE.setDate("today");
+					mYMLE.setDate(today);
 					
 					          
 		            mYMLEs.add(mYMLE);

@@ -16,7 +16,6 @@
 <fullyQualifiedTypeName name="android.app.Activity"/>
 <fullyQualifiedTypeName name="android.net.ConnectivityManager"/>
 <fullyQualifiedTypeName name="android.net.NetworkInfo"/>
-<fullyQualifiedTypeName name="android.support.v4.app.Fragment"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.network.YMLEParser.TitleTask"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.network.Controller.OnTitleResponseRecievedListener"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.fragments.YMLEFragment"/>
@@ -25,7 +24,6 @@
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.network.Controller.OnYMLEResponseRecievedListener"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
-<fullyQualifiedTypeName name="com.kadirayk.ireadnothing.R"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.R.layout"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.R.id"/>
@@ -47,4 +45,8 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.database.MySQLiteHelper"/>
 <fullyQualifiedTypeName name="com.kadirayk.ireadnothing.database.YMLEDataSource"/>
+<fullyQualifiedTypeName name="android.support.v4.app.Fragment"/>
+<fullyQualifiedTypeName name="com.kadirayk.ireadnothing.R"/>
+<fullyQualifiedTypeName name="com.kadirayk.ireadnothing.fragments.ScreenSlidePageFragment"/>
+<fullyQualifiedTypeName name="com.kadirayk.ireadnothing.adapters.ScreenSlidePagerAdapter"/>
 </qualifiedTypeNameHistroy>
