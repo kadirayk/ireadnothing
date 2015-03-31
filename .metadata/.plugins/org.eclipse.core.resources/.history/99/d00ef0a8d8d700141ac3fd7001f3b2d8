@@ -84,10 +84,10 @@ public class YMLEDataSource {
 	
 	public List<YMLE> getAllYMLESByDate(String date) {
 	    List<YMLE> ymles = new ArrayList<YMLE>();
-
+	    date = date.trim();
 	    Cursor cursor = database.rawQuery("SELECT * FROM "
-				+ MySQLiteHelper.TABLE_YMLES + " WHERE " + MySQLiteHelper.YMLES_COLUMN_DATE + " = '" + date
-				+ "' ORDER BY " + MySQLiteHelper.YMLES_COLUMN_PLACE + " ASC ", null);
+				+ MySQLiteHelper.TABLE_YMLES + " WHERE " + MySQLiteHelper.YMLES_COLUMN_DATE + " = " + date
+				, null);
 
 	    cursor.moveToFirst();
 	    while (!cursor.isAfterLast()) {

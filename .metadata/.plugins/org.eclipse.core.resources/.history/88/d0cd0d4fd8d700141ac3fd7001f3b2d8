@@ -86,8 +86,8 @@ public class YMLEDataSource {
 	    List<YMLE> ymles = new ArrayList<YMLE>();
 
 	    Cursor cursor = database.rawQuery("SELECT * FROM "
-				+ MySQLiteHelper.TABLE_YMLES + " WHERE " + MySQLiteHelper.YMLES_COLUMN_DATE + " = '" + date
-				+ "' ORDER BY " + MySQLiteHelper.YMLES_COLUMN_PLACE + " ASC ", null);
+				+ MySQLiteHelper.TABLE_YMLES + " WHERE " + MySQLiteHelper.YMLES_COLUMN_DATE + " = " + date
+				+ " ORDER BY " + MySQLiteHelper.YMLES_COLUMN_PLACE + " ASC ", null);
 
 	    cursor.moveToFirst();
 	    while (!cursor.isAfterLast()) {

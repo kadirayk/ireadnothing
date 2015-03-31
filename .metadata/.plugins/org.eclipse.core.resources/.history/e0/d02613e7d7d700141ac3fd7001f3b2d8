@@ -53,19 +53,18 @@ public class YMLEFragment extends Fragment implements OnItemClickListener, OnTit
 		dataSource.open();
 		
 		String today = AppController.getSystemDate();
-		String lastday = AppController.getLastYMLEDay(getActivity());
 		
-		if(lastday == ""){
+		if(AppController.getLastYMLEDay(getActivity()) == ""){
 			//if it is first time call network task
 			
 			AppController.storeLastYMLEDay(getActivity(), today);
 			YMLEParser networkHandler = new YMLEParser(getActivity(), this);
 			networkHandler.callYMLETask();
 			
-		}else if(lastday.equals(today)){
+		}else if(AppController.getLastYMLEDay(getActivity()).equals(today)){
 			//if already stored do not call network task
 			
-			ymleList  = dataSource.getAllYMLESByDate(lastday);
+			ymleList  = dataSource.getAllYMLES();
 			updateAdapter(ymleList);
 			Toast.makeText(getActivity(), AppController.getSystemDate(), Toast.LENGTH_SHORT).show();
 		}
